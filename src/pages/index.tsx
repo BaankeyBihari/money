@@ -4,11 +4,9 @@ import Box from "@mui/material/Box"
 import Container from "@mui/material/Container"
 import Typography from "@mui/material/Typography"
 
-import Copyright from "@components/Copyright"
 import Link from "@components/Link"
-import ProTip from "@components/ProTip"
 
-export default function Index() {
+const Index = () => {
   return (
     <Container maxWidth="sm">
       <Box sx={{ my: 4 }}>
@@ -18,9 +16,13 @@ export default function Index() {
         <Link href="/about" color="secondary">
           Go to the about page
         </Link>
-        <ProTip />
-        <Copyright />
       </Box>
     </Container>
   )
 }
+
+Index.getInitialProps = () => {
+  return { title: "Home", currentNavItem: "home", sampleNeeded: true }
+}
+
+export default Index
