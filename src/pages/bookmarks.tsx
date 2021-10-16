@@ -1,28 +1,21 @@
 import * as React from "react"
 
-import Box from "@mui/material/Box"
-import Container from "@mui/material/Container"
-import Typography from "@mui/material/Typography"
+import dynamic from "next/dynamic"
 
-import Link from "@components/Link"
+const BookmarksW = dynamic(() => import("@components/LazyPages"))
 
 const Bookmarks = () => {
-  return (
-    <Container maxWidth="sm">
-      <Box sx={{ my: 4 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Next.js v5-beta with TypeScript example
-        </Typography>
-        <Link href="/about" color="secondary">
-          Go to the about page
-        </Link>
-      </Box>
-    </Container>
-  )
+  return <BookmarksW />
 }
 
-Bookmarks.getInitialProps = () => {
-  return { title: "Bookmarks", currentNavItem: "bookmarks", sampleNeeded: true }
+export async function getStaticProps() {
+  return {
+    props: {
+      title: "Bookmarks",
+      currentNavItem: "bookmarks",
+      sampleNeeded: true,
+    },
+  }
 }
 
 export default Bookmarks

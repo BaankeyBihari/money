@@ -92,16 +92,16 @@ const NavMenuItems = [
     Icon: <MFBookMarkIcon />,
   },
   {
-    key: "compare",
-    href: "/compare",
-    displayName: "Compare",
-    Icon: <CompareIcon />,
-  },
-  {
     key: "browse",
     href: "/browse",
     displayName: "Browse",
     Icon: <MFBrowseIcon />,
+  },
+  {
+    key: "compare",
+    href: "/compare",
+    displayName: "Compare",
+    Icon: <CompareIcon />,
   },
   {
     key: "about",
@@ -171,7 +171,12 @@ export default function BackToTop(props: Props) {
                         <MenuItem onClick={handleClose}>
                           <>
                             <ListItemIcon>{e.Icon}</ListItemIcon>
-                            <Typography variant="h6">
+                            <Typography
+                              variant="h6"
+                              color={
+                                e.key !== currentNavItem ? "inherit" : "primary"
+                              }
+                            >
                               {e.displayName}
                             </Typography>
                           </>

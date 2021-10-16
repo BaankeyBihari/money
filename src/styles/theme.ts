@@ -14,6 +14,25 @@ const theme = createTheme({
       main: red.A400,
     },
   },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: `
+        html, body {
+          height: 100%;
+        }
+        body {
+          display: flex;
+          flex-direction: column;
+        }
+        .content {
+          flex: 1 0 auto;
+        }
+        .footer {
+          flex-shrink: 0;
+        }
+      `,
+    },
+  },
 })
 
 export default theme

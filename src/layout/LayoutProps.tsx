@@ -5,8 +5,6 @@ interface BaseLayoutProps extends AppProps {
   useLayout: string
 }
 
-export interface DefaultLayoutProps extends BaseLayoutProps {
+export default interface LayoutProps extends BaseLayoutProps {
   emotionCache?: EmotionCache
 }
-
-export default interface LayoutProps extends DefaultLayoutProps {}

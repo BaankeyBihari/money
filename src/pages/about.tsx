@@ -1,29 +1,17 @@
 import * as React from "react"
 
-import Box from "@mui/material/Box"
-import Button from "@mui/material/Button"
-import Container from "@mui/material/Container"
-import Typography from "@mui/material/Typography"
+import dynamic from "next/dynamic"
 
-import Link from "@components/Link"
+const AboutW = dynamic(() => import("@components/LazyPages"))
 
 const About = () => {
-  return (
-    <Container maxWidth="sm">
-      <Box sx={{ my: 4 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Next.js v5-beta with TypeScript example
-        </Typography>
-        <Button variant="contained" component={Link} noLinkStyle href="/">
-          Go to the main page
-        </Button>
-      </Box>
-    </Container>
-  )
+  return <AboutW />
 }
 
-About.getInitialProps = () => {
-  return { title: "About", currentNavItem: "about", sampleNeeded: true }
+export async function getStaticProps() {
+  return {
+    props: { title: "About", currentNavItem: "about", sampleNeeded: true },
+  }
 }
 
 export default About
